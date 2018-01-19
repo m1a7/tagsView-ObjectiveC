@@ -1,0 +1,12 @@
+PODS:
+  - TTGTagCollectionView (1.8.0)
+
+DEPENDENCIES:
+  - TTGTagCollectionView
+
+SPEC CHECKSUMS:
+  TTGTagCollectionView: f8c0028d729dfbc2c86cd7211d319cf3446fed44
+
+PODFILE CHECKSUM: 5dbc054dbbdef6d370a63c6d46fb5f1c0a85daf0
+
+COCOAPODS: 1.4.0.beta.2

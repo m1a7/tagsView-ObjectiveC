@@ -1,0 +1,6 @@
+framework module Pods_tagsView_ObjectiveC {
+  umbrella header "Pods-tagsView-ObjectiveC-umbrella.h"
+
+  export *
+  module * { export * }
+}

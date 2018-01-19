@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Santa Catalina-->
+        <scene sceneID="Xuu-br-fpG">
+            <objects>
+                <viewController storyboardIdentifier="SantaCatalinaVC" id="1nE-lK-rtK" customClass="SantaCatalinaVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QE7-mc-zgc"/>
+                        <viewControllerLayoutGuide type="bottom" id="vEc-hF-JJA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3i-7u-sBY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFq-4L-PUk">
+                                <rect key="frame" x="16" y="604" width="343" height="43"/>
+                                <color key="backgroundColor" red="0.4955428449" green="0.89808970690000001" blue="0.54631738939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="ASV-nf-ftw"/>
+                                </constraints>
+                                <state key="normal" title="Add to Favorite">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cs9-vc-Tvv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SCPhotoCell" rowHeight="375" id="S7V-s3-Lr3" customClass="SCPhotoCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7V-s3-Lr3" id="Bga-4O-937">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IwU-uo-Ori">
+                                                    <rect key="frame" x="15" y="15" width="345" height="345"/>
+                                                    <color key="backgroundColor" red="0.028207691337554831" green="0.18602502516334554" blue="0.88488835096359253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.077228434383869171" green="0.071762882173061371" blue="0.0059936027973890305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="IwU-uo-Ori" secondAttribute="trailing" constant="15" id="Z5Z-rW-G8V"/>
+                                                <constraint firstAttribute="bottom" secondItem="IwU-uo-Ori" secondAttribute="bottom" constant="15" id="brk-vl-up9"/>
+                                                <constraint firstItem="IwU-uo-Ori" firstAttribute="top" secondItem="Bga-4O-937" secondAttribute="top" constant="15" id="or9-bv-kMg"/>
+                                                <constraint firstItem="IwU-uo-Ori" firstAttribute="leading" secondItem="Bga-4O-937" secondAttribute="leading" constant="15" id="rrk-Y6-mKS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="santaCatalinaImgView" destination="IwU-uo-Ori" id="Iu0-Ts-cC1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1nE-lK-rtK" id="UAE-P8-Lon"/>
+                                    <outlet property="delegate" destination="1nE-lK-rtK" id="7yV-m1-KiE"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn6-BY-i9Q">
+                                <rect key="frame" x="0.0" y="578" width="375" height="10"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="WKB-VP-wdy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13782241940498352" green="0.14480876922607422" blue="0.14942339062690735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vEc-hF-JJA" firstAttribute="top" secondItem="yFq-4L-PUk" secondAttribute="bottom" constant="20" id="0gb-W9-4Y5"/>
+                            <constraint firstAttribute="trailing" secondItem="Xn6-BY-i9Q" secondAttribute="trailing" id="3aC-0J-C0C"/>
+                            <constraint firstAttribute="trailing" secondItem="yFq-4L-PUk" secondAttribute="trailing" constant="16" id="Brf-yF-q0A"/>
+                            <constraint firstItem="Cs9-vc-Tvv" firstAttribute="leading" secondItem="l3i-7u-sBY" secondAttribute="leading" id="EUE-JU-a9d"/>
+                            <constraint firstItem="Xn6-BY-i9Q" firstAttribute="leading" secondItem="l3i-7u-sBY" secondAttribute="leading" id="ZmR-BI-EI8"/>
+                            <constraint firstItem="Cs9-vc-Tvv" firstAttribute="trailing" secondItem="l3i-7u-sBY" secondAttribute="trailing" id="c1B-a4-xPZ"/>
+                            <constraint firstItem="yFq-4L-PUk" firstAttribute="top" secondItem="Cs9-vc-Tvv" secondAttribute="bottom" constant="16" id="ekI-o6-WX9"/>
+                            <constraint firstItem="yFq-4L-PUk" firstAttribute="leading" secondItem="l3i-7u-sBY" secondAttribute="leading" constant="16" id="ghc-YG-99g"/>
+                            <constraint firstItem="Cs9-vc-Tvv" firstAttribute="top" secondItem="QE7-mc-zgc" secondAttribute="bottom" id="kcq-aY-rHb"/>
+                            <constraint firstItem="yFq-4L-PUk" firstAttribute="top" secondItem="Xn6-BY-i9Q" secondAttribute="bottom" constant="16" id="ke2-6f-yZW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Santa Catalina" id="e3o-st-bmY"/>
+                    <connections>
+                        <outlet property="addToFavoriteBtn" destination="yFq-4L-PUk" id="qwq-7G-pGU"/>
+                        <outlet property="gradientView" destination="Xn6-BY-i9Q" id="Sgv-Gw-dSC"/>
+                        <outlet property="tableView" destination="Cs9-vc-Tvv" id="9Va-1R-Pfe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FVJ-70-EOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1269.5999999999999" y="903.59820089955031"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H0x-Ir-mND">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iFO-AZ-wlY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GD5-UI-5k0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1nE-lK-rtK" kind="relationship" relationship="rootViewController" id="9gn-Bc-cxH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27U-Kv-msN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="904"/>
+        </scene>
+    </scenes>
+</document>
