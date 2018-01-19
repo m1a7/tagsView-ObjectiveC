@@ -19,7 +19,7 @@
 
 
 #import "SCPhotoVMCell.h"           // ViewModel для ячейки SantaCatalinaPhotoCell
-#import "SCTagVMCell.h" // ViewModel для ячейки SantaCatalinaCollectionCell
+#import "SCTagVMCell.h"              // ViewModel для ячейки SantaCatalinaCollectionCell
 
 
 //////////////////////////////////////////////////
@@ -229,120 +229,6 @@
 {
     return UIStatusBarStyleLightContent;
 }
-
-
-/*
-////////////////////////////////////////////////
-////                                        ////
-////                                        ////
-////  OLD MVC ARCHITECTURE IMPLEMENTATION   ////
-////                                        ////
-////                                        ////
- ///////////////////////////////////////////////
-
- 
- #pragma mark - UITableViewDataSource
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowsInSection- [self.vm_TableView countCells] = %d",[self.vm_TableView countCells]);
-    
-      return  [self.vm_TableView countCells];
-}
-
-- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SCparentVMcell* vm  = [self.vm_TableView cellViewModel:indexPath.row];
-
-    if ([vm isMemberOfClass:[SantaCatalinaVMCell class]])
-    {
-       SantaCatalinaVMCell* myVM = (SantaCatalinaVMCell*)vm;
-        return [SantaCatalinaPhotoCell calculateHeightOfImageViewSize:CGSizeMake(CGRectGetWidth(self.tableView.frame)-(StandartOffSetInCell*2), CGFLOAT_MAX)
-                                                                 andImageSize:[UIImage imageNamed:myVM.photoURL].size]+(StandartOffSetInCell*2);
-    }
-    
-    if ([[self.vm_TableView cellViewModel:indexPath.row] isMemberOfClass:[SantaCatalinaCollectionVMCell class]])
-    {
-        return (CGFloat)self.vm_TableView.heightForSecondCell;
-    }
-
-    return standartCellHeight;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    id cell;
-    NSString* identifier;
-    
-    SCparentVMcell* vm  = [self.vm_TableView cellViewModel:indexPath.row];
-
-    if ([vm isMemberOfClass:[SantaCatalinaVMCell class]])           identifier = @"SantaCatalinaPhotoCell";
-    if ([vm isMemberOfClass:[SantaCatalinaCollectionVMCell class]]) identifier = @"SantaCatalinaCollectionCell";
-
-    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell){
-         cell = [[NSClassFromString(identifier) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self configureCell:cell atIndexPath:indexPath];
-}
-
-#pragma mark - UITableView helper methods
-
-- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    __weak SantaCatalinaVC *weakSelf = self;
-        
-    ANDispatchBlockToBackgroundQueue(^{
-        
-        SCparentVMcell* vm  = [weakSelf.vm_TableView cellViewModel:indexPath.row];
-
-                        if ([cell isMemberOfClass:[SantaCatalinaPhotoCell class]])
-                        {
-                            SantaCatalinaPhotoCell*  customCell = (SantaCatalinaPhotoCell*)cell;
-                            NSLog(@"customCell.backgroundColor =%@",customCell.backgroundColor);
-                            if (!customCell.vm_cell) customCell.vm_cell = (SantaCatalinaVMCell*)vm;
-                        }
-                        
-                        if ([cell isMemberOfClass:[SantaCatalinaCollectionCell class]])
-                        {
-                           SantaCatalinaCollectionCell* customCell = (SantaCatalinaCollectionCell*)cell;
-                           customCell.backgroundColor = [UIColor colorWithRed:0.96 green:0.91 blue:0.78 alpha:1.0];
-                            if (!customCell.vm_cell)
-                                customCell.vm_cell = (SantaCatalinaCollectionVMCell*)vm;
-
-                            if (weakSelf.vm_TableView.heightForSecondCell < 1.f)
-                            {
-                                [customCell initTagViewWithArray: customCell.vm_cell.tags
-                                                        getBlock:^(float heightCell) {
-                                                           
-                                                            weakSelf.vm_TableView.heightForSecondCell = heightCell;
-                                                            ANDispatchBlockToMainQueue(^{
-                                                                [weakSelf.tableView reloadData];
-                                                            });
-                                                        }];
-                            } else if (weakSelf.vm_TableView.heightForSecondCell > 1.f && customCell.tagView)
-                                        {
-                                            [customCell addConstraintAndAnotherSettingsToTagView];
-                                        }
-                        }
-             
-     });
-}
-*/
 
 @end
 
